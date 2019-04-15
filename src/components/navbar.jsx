@@ -13,7 +13,7 @@ class NavBar extends Component {
         </a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link">Employee Sign-in</a>
+            <a class="nav-link">Ranger Sign-in</a>
           </li>
         </ul>
       </nav>

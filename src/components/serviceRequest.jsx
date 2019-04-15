@@ -2,10 +2,27 @@ import React, { Component } from "react";
 
 class ServiceRequest extends Component {
   state = {};
+
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    console.log("Testing breakpoint");
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch("http://localhost:8080/serviceRequest", {
+      method: "POST",
+      body: data
+    });
+  }
+
   render() {
     return (
       <div class="container">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div class="form-group">
             <label for="email">Email address</label>
             <input
@@ -67,6 +84,9 @@ class ServiceRequest extends Component {
             <label for="notes">Notes</label>
             <textarea class="form-control" id="notes" rows="3" />
           </div>
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
         </form>
       </div>
     );
