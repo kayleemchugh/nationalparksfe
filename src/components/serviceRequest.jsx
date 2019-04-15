@@ -36,47 +36,41 @@ class ServiceRequest extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input type="text" ref={input => (this.input = input)} />
-          </label>
-          <div class="form-group">
-            <label for="email">Email address</label>
+          <div className="form-group">
+            <label>Email address</label>
             <input
               ref={input => (this.emailAddress = input)}
               type="email"
-              class="form-control"
+              className="form-control"
               name="email"
               placeholder="name@example.com"
             />
           </div>
-          <div class="form-group">
-            <label for="firstName">First Name</label>
+          <div className="form-group">
+            <label>First Name</label>
             <input
               type="text"
               ref={input => (this.firstName = input)}
-              type="text"
-              class="form-control"
+              className="form-control"
               id="firstName"
               placeholder="Jane"
             />
           </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
+          <div className="form-group">
+            <label>Last Name</label>
             <input
               type="text"
               ref={input => (this.lastName = input)}
-              type="text"
-              class="form-control"
+              className="form-control"
               id="lastName"
               placeholder="Doe"
             />
           </div>
-          <div class="form-group">
-            <label for="nationalPark">Visiting National Park</label>
-            <select class="form-control" id="nationalPark">
+          <div className="form-group">
+            <label>Visiting National Park</label>
+            <select className="form-control" id="nationalPark">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -84,9 +78,9 @@ class ServiceRequest extends Component {
               <option>5</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="serviceType">Service Request Type</label>
-            <select class="form-control" id="serviceType">
+          <div className="form-group">
+            <label>Service Request Type</label>
+            <select className="form-control" id="serviceType">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -94,9 +88,9 @@ class ServiceRequest extends Component {
               <option>5</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="serviceType">Urgency of Request</label>
-            <select class="form-control" id="urgency">
+          <div className="form-group">
+            <label>Urgency of Request</label>
+            <select className="form-control" id="urgency">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -104,11 +98,11 @@ class ServiceRequest extends Component {
               <option>5</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="notes">Notes</label>
-            <textarea class="form-control" id="notes" rows="3" />
+          <div className="form-group">
+            <label>Notes</label>
+            <textarea className="form-control" id="notes" rows="3" />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
