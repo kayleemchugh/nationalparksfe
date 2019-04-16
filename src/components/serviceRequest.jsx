@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+// require("react-datetime");
 
 class ServiceRequest extends Component {
   state = {};
 
-  visitor = {
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    zipCode: ""
+  serviceRequest = {
+    serviceTypeId: "",
+    visitorId: "",
+    dateRequested: "",
+    parkId: "",
+    isActive: true,
+    description: "",
+    title: "",
+    urgency: ""
   };
 
   constructor() {
@@ -16,22 +21,18 @@ class ServiceRequest extends Component {
   }
 
   handleSubmit(event) {
-    this.visitor.emailAddress = this.emailAddress.value;
-    alert("The value is: " + this.emailAddress.value);
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-    console.log("DATA" + data.email);
+    this.serviceRequest.serviceTypeId = this.serviceTypeId.value;
+    this.serviceRequest.visitorId = "bring in visitor id";
+    this.serviceRequest.dateRequested = new Date();
+    this.serviceRequest.parkId = this.parkId.value;
+    this.serviceRequest.description = this.description.value;
+    this.serviceRequest.title = this.description.title;
+    this.serviceRequest.urgency = this.urgency.value;
 
-    fetch("http://localhost:8080/visitor", {
+    fetch("http://localhost:8080/serviceRequest", {
       method: "POST",
-      body: this.visitor
+      body: this.serviceRequest
     });
-
-    // fetch("http://localhost:8080/serviceRequest", {
-    //   method: "POST",
-    //   body: data
-    // });
   }
 
   render() {
@@ -39,33 +40,13 @@ class ServiceRequest extends Component {
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Email address</label>
+            <label>Request Title</label>
             <input
-              ref={input => (this.emailAddress = input)}
-              type="email"
-              className="form-control"
-              name="email"
-              placeholder="name@example.com"
-            />
-          </div>
-          <div className="form-group">
-            <label>First Name</label>
-            <input
+              ref={input => (this.title = input)}
               type="text"
-              ref={input => (this.firstName = input)}
               className="form-control"
-              id="firstName"
-              placeholder="Jane"
-            />
-          </div>
-          <div className="form-group">
-            <label>Last Name</label>
-            <input
-              type="text"
-              ref={input => (this.lastName = input)}
-              className="form-control"
-              id="lastName"
-              placeholder="Doe"
+              name="title"
+              placeholder="Bathroom Issues"
             />
           </div>
           <div className="form-group">
@@ -100,7 +81,12 @@ class ServiceRequest extends Component {
           </div>
           <div className="form-group">
             <label>Notes</label>
-            <textarea className="form-control" id="notes" rows="3" />
+            <textarea
+              ref={input => (this.description = input)}
+              className="form-control"
+              id="notes"
+              rows="3"
+            />
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
