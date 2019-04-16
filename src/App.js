@@ -17,16 +17,6 @@ class App extends Component {
   }
 
   handleVisitorSubmit(visitor) {
-    // this.visitor.emailAddress = this.emailAddress.value;
-    // this.visitor.firstName = this.firstName.value;
-    // this.visitor.lastName = this.lastName.value;
-
-    // alert("The value is: " + this.emailAddress.value);
-    // event.preventDefault();
-    // const form = event.target;
-    // const data = new FormData(form);
-    // console.log("DATA" + data.email);
-
     this.setState({
       showVisitorForm: false,
       showServiceRequestForm: true
